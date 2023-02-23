@@ -27,16 +27,16 @@ foreach ($file in $files) {
 
 
     # Determine the rename counter for the current date
-    $renameCounter = $renameCounters[$date.ToString("yyyyMMdd-HHmmss")]
+    $renameCounter = $renameCounters[$date.ToString("yyyyMMdd_HHmmss")]
     if ($renameCounter -eq $null) {
         $renameCounter = 1
     } else {
         $renameCounter++
     }
-    $renameCounters[$date.ToString("yyyyMMdd-HHmmss")] = $renameCounter
+    $renameCounters[$date.ToString("yyyyMMdd_HHmmss")] = $renameCounter
 
     # Rename the file with the date in YYYYMMDD-HHmmss format, followed by the rename counter
-    $newName = $date.ToString("yyyyMMdd-HHmmss") + "_$renameCounter" + $file.Extension
+    $newName = $date.ToString("yyyyMMdd_HHmmss") + "_$renameCounter" + $file.Extension
 
     # Attempt to rename the file, with error handling to output any errors to the console
     try {
